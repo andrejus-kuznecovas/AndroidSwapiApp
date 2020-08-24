@@ -3,3 +3,19 @@
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 c
 3app/src/main/java/com/example/swapi/MainActivity.kt,1\e\1ecf03648d0b34ac1a21cfee5e286cc4faeb4ae4
+q
+Aapp/src/main/java/com/example/swapi/character/CharacterAdapter.kt,5\9\597b8c52d2af5f354e98b3d27533d1291d780cc2
+h
+8app/src/main/java/com/example/swapi/network/Character.kt,6\2\6223aa701596308f7dedb4944ab4ef9542bd276d
+k
+;app/src/main/java/com/example/swapi/network/SwapiService.kt,6\0\60e031cdf5c52a0685230e5d0ec96afe04e81a9d
+j
+:app/src/main/java/com/example/swapi/network/SwapiResult.kt,6\6\66f98c9dc721bbff355d1e39d08dc4d4616959ef
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+s
+Capp/src/main/java/com/example/swapi/character/CharacterViewModel.kt,d\2\d2be8cc0ffa0b0c96e2bb79f5d50e2bc43c5d53e
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+r
+Bapp/src/main/java/com/example/swapi/character/CharacterFragment.kt,e\1\e18fd73b2ecb0297d7a8ce88a0567860255136c6
