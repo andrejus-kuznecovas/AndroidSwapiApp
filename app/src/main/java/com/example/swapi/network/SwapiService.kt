@@ -7,6 +7,7 @@ import kotlinx.coroutines.Deferred
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 private const val BASE_URL = "http://swapi.dev/api/"
 
@@ -24,7 +25,7 @@ private val retrofit = Retrofit.Builder()
 
 interface SwapiService {
     @GET("people")
-    fun getPeopleAsync(): Deferred<SwapiResult>
+    fun getPeopleAsync(@Query("page") type: Int): Deferred<SwapiResult>
 }
 
 object Swapi {

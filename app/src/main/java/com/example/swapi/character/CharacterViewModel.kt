@@ -1,9 +1,11 @@
 package com.example.swapi.character
 
-import android.util.Log
+import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.example.swapi.network.Character
 import com.example.swapi.network.Swapi
 import com.example.swapi.network.SwapiResult
 import kotlinx.coroutines.CoroutineScope
@@ -18,24 +20,32 @@ class CharacterViewModel : ViewModel() {
     val swapiResult: LiveData<SwapiResult>
         get() = _swapiResult
 
-    // Create a Coroutine scope using a job to be able to cancel when needed
+    private val _characterList = MutableLiveData<List<Character>>()
+
+    val characterList: LiveData<List<Character>>
+        get() = _characterList
+
+    val nextPageUri = Transformations.map(_swapiResult) {
+        Uri.parse(swapiResult.value?.nextPageUri)
+    }
+
+
     private var viewModelJob = Job()
 
-    // the Coroutine runs using the Main (UI) dispatcher
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     init {
-        getSwapiResult()
+
+        getCharacters(1)
     }
 
-    private fun getSwapiResult() {
+    private fun getCharacters(page: Int) {
         coroutineScope.launch {
-            var getPeopleDeferred = Swapi.retrofitService.getPeopleAsync()
+            var getPeopleDeferred = Swapi.retrofitService.getPeopleAsync(1)
             try {
                 //status = loading
-                Log.i("CHAR getSwapiResult", getPeopleDeferred.await().toString())
                 _swapiResult.value = getPeopleDeferred.await()
-
+                _characterList.value = _swapiResult.value!!.results
             } catch (e: Exception) {
 
             }
@@ -43,6 +53,7 @@ class CharacterViewModel : ViewModel() {
     }
 
     override fun onCleared() {
+
         super.onCleared()
         viewModelJob.cancel()
     }
