@@ -74,5 +74,5 @@ dependencies {
 
     //add paging library
     implementation 'android.arch.paging:runtime:1.0.1'
-
+    
 }
