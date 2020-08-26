@@ -13,11 +13,11 @@ class CharacterAdapter(private val onClickListener: OnClickListener) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): CharacterAdapter.CharacterViewHolder {
+    ): CharacterViewHolder {
         return CharacterViewHolder(GridViewItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
 
-    override fun onBindViewHolder(holder: CharacterAdapter.CharacterViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         val character = getItem(position)
         holder.itemView.setOnClickListener {
             onClickListener.onClick(character)
