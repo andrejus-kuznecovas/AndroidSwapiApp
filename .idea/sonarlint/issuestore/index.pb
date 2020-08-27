@@ -23,3 +23,9 @@ f
 6app/src/main/java/com/example/swapi/BindingAdapters.kt,0\9\09795f48ddb8d622edb779c5491f483a31662fe7
 t
 Dapp/src/main/java/com/example/swapi/character/CharacterDataSource.kt,5\a\5a8fcc630ad1924786aa1477377ccccc693a5835
+z
+Japp/src/main/java/com/example/swapi/character/CharacterViewModelFactory.kt,6\2\62df35b3a80cc892dc107df2877d9ea5ded74955
+{
+Kapp/src/main/java/com/example/swapi/character/CharacterPagedListProvider.kt,c\c\ccca3ee4131810a1207a06dfeacedbc59fad9542
+o
+?app/src/main/java/com/example/swapi/usecase/GetPeopleUseCase.kt,5\b\5b76596539c341407ce35b2d48b9dc73b94521ac

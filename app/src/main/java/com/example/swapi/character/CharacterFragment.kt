@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.swapi.databinding.FragmentCharacterBinding
 
 class CharacterFragment : Fragment() {
@@ -21,9 +22,13 @@ class CharacterFragment : Fragment() {
         binding.viewModel = viewModel
         viewModel.observePagedList(this)
 
-//        binding.characterGrid.adapter = CharacterAdapter(CharacterAdapter.OnClickListener {
-//            Toast.makeText(context, "Click happens XD", Toast.LENGTH_SHORT).show()
-//        })
+        viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, {
+            if (it != null) {
+                this.findNavController()
+                    .navigate(CharacterFragmentDirections.actionCharacterFragmentToDetailFragment(it))
+                viewModel.displayPropertyDetailsComplete()
+            }
+        })
 
         return binding.root
     }

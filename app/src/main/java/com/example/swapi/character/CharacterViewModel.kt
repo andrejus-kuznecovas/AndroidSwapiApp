@@ -1,7 +1,9 @@
 package com.example.swapi.character
 
-import android.net.Uri
-import androidx.lifecycle.*
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import com.example.swapi.network.Character
 import com.example.swapi.network.SwapiResult
 
@@ -17,34 +19,32 @@ class CharacterViewModel(pagedListProvider: PagedListProvider<Character?>) : Vie
     val characterList: LiveData<List<Character>>
         get() = _characterList
 
-    val nextPageUri = Transformations.map(_swapiResult) {
-        Uri.parse(swapiResult.value?.nextPageUri)
-    }
+    private val _navigateToSelectedProperty = MutableLiveData<Character>()
+
+    val navigateToSelectedProperty: LiveData<Character>
+        get() = _navigateToSelectedProperty
 
     val pagedListData = pagedListProvider.provide()
-    val adapter = CharacterAdapter(CharacterAdapter.OnClickListener {})
+    val adapter = CharacterAdapter(CharacterAdapter.OnClickListener {
+        this.displayPropertyDetails(it)
+    })
 
     fun observePagedList(owner: LifecycleOwner) {
-        pagedListData.observe(owner, Observer { adapter.submitList(it) })
+        pagedListData.observe(owner, { adapter.submitList(it) })
     }
 
 
     init {
 
-        //getCharacters(1)
     }
 
-//    private fun getCharacters(page: Int) {
-//        coroutineScope.launch {
-//            var getPeopleDeferred = Swapi.retrofitService.getPeopleAsync(1)
-//            try {
-//                //status = loading
-//                _swapiResult.value = getPeopleDeferred.await()
-//                _characterList.value = _swapiResult.value!!.results
-//            } catch (e: Exception) {
-//
-//            }
-//        }
-//    }
-    
+
+    fun displayPropertyDetails(character: Character?) {
+        _navigateToSelectedProperty.value = character
+    }
+
+    fun displayPropertyDetailsComplete() {
+        _navigateToSelectedProperty.value = null
+    }
+
 }
