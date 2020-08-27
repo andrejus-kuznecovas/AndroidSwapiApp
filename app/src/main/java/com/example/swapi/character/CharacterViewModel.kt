@@ -5,19 +5,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.swapi.network.Character
-import com.example.swapi.network.SwapiResult
 
 class CharacterViewModel(pagedListProvider: PagedListProvider<Character?>) : ViewModel() {
-
-    private val _swapiResult = MutableLiveData<SwapiResult>()
-
-    val swapiResult: LiveData<SwapiResult>
-        get() = _swapiResult
-
-    private val _characterList = MutableLiveData<List<Character>>()
-
-    val characterList: LiveData<List<Character>>
-        get() = _characterList
+//
+//    private val _swapiResult = MutableLiveData<SwapiResult>()
+//
+//    val swapiResult: LiveData<SwapiResult>
+//        get() = _swapiResult
+//
+//    private val _characterList = MutableLiveData<List<Character>>()
+//
+//    val characterList: LiveData<List<Character>>
+//        get() = _characterList
 
     private val _navigateToSelectedProperty = MutableLiveData<Character>()
 
@@ -31,11 +30,6 @@ class CharacterViewModel(pagedListProvider: PagedListProvider<Character?>) : Vie
 
     fun observePagedList(owner: LifecycleOwner) {
         pagedListData.observe(owner, { adapter.submitList(it) })
-    }
-
-
-    init {
-
     }
 
 

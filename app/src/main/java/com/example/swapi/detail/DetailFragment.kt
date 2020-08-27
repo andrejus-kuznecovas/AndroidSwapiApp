@@ -20,9 +20,9 @@ class DetailFragment : Fragment() {
 
         val selectedChar = DetailFragmentArgs.fromBundle(arguments!!).selectedCharacter
 
-        val detalViewModelFactory = DetailViewModelFactory(selectedChar, application)
+        val detailViewModelFactory = DetailViewModelFactory(selectedChar, application)
         val viewModel =
-            ViewModelProvider(this, detalViewModelFactory).get(DetailViewModel::class.java)
+            ViewModelProvider(this, detailViewModelFactory).get(DetailViewModel::class.java)
         binding.detailViewModel = viewModel
         return binding.root
     }

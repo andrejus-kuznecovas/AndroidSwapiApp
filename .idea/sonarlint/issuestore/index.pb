@@ -29,3 +29,9 @@ Japp/src/main/java/com/example/swapi/character/CharacterViewModelFactory.kt,6\2
 Kapp/src/main/java/com/example/swapi/character/CharacterPagedListProvider.kt,c\c\ccca3ee4131810a1207a06dfeacedbc59fad9542
 o
 ?app/src/main/java/com/example/swapi/usecase/GetPeopleUseCase.kt,5\b\5b76596539c341407ce35b2d48b9dc73b94521ac
+t
+Dapp/src/main/java/com/example/swapi/detail/DetailViewModelFactory.kt,b\5\b51288614105d6baa760ce846c824c87fc230024
+m
+=app/src/main/java/com/example/swapi/detail/DetailViewModel.kt,9\f\9fa7c9c2776574e6860c09dac53237cef59bf09f
+l
+<app/src/main/java/com/example/swapi/detail/DetailFragment.kt,9\4\941814f12fd48f46e6ded0d194499f78edf9073d
