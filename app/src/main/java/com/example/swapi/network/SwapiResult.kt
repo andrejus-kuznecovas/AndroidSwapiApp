@@ -6,7 +6,7 @@ data class SwapiResult(
     @Json(name = "count")
     val characterCount: Int,
     @Json(name = "next")
-    val nextPageUri: String,
+    val nextPageUri: String?,
     @Json(name = "previous")
     val previousPageUri: String?,
     @Json(name = "results")

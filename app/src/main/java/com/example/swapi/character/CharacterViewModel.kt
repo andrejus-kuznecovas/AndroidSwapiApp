@@ -7,23 +7,20 @@ import androidx.lifecycle.ViewModel
 import com.example.swapi.network.Character
 
 class CharacterViewModel(pagedListProvider: PagedListProvider<Character?>) : ViewModel() {
-//
-//    private val _swapiResult = MutableLiveData<SwapiResult>()
-//
-//    val swapiResult: LiveData<SwapiResult>
-//        get() = _swapiResult
-//
-//    private val _characterList = MutableLiveData<List<Character>>()
-//
-//    val characterList: LiveData<List<Character>>
-//        get() = _characterList
 
     private val _navigateToSelectedProperty = MutableLiveData<Character>()
 
     val navigateToSelectedProperty: LiveData<Character>
         get() = _navigateToSelectedProperty
 
-    val pagedListData = pagedListProvider.provide()
+    private val _searchCriteria = MutableLiveData<String?>()
+
+    val searchCriteria: LiveData<String?>
+        get() = _searchCriteria
+
+
+    private val pagedListData = pagedListProvider.provide()
+
     val adapter = CharacterAdapter(CharacterAdapter.OnClickListener {
         this.displayPropertyDetails(it)
     })
@@ -41,4 +38,11 @@ class CharacterViewModel(pagedListProvider: PagedListProvider<Character?>) : Vie
         _navigateToSelectedProperty.value = null
     }
 
+    fun changeSearchQuery(query: String?) {
+        _searchCriteria.value = query
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+    }
 }

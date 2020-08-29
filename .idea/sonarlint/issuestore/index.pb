@@ -35,3 +35,9 @@ m
 =app/src/main/java/com/example/swapi/detail/DetailViewModel.kt,9\f\9fa7c9c2776574e6860c09dac53237cef59bf09f
 l
 <app/src/main/java/com/example/swapi/detail/DetailFragment.kt,9\4\941814f12fd48f46e6ded0d194499f78edf9073d
+u
+Eapp/src/main/java/com/example/swapi/datasource/CharacterDataSource.kt,9\6\96de57c4cc8db95f04e60928434f5c34efe1ede6
+{
+Kapp/src/main/java/com/example/swapi/datasource/SearchCharacterDataSource.kt,d\6\d698a1b0fea2e20ead50d8bbe62c6003ace37dc9
+w
+Gapp/src/main/java/com/example/swapi/usecase/GetSearchedPeopleUseCase.kt,0\4\04eea8630026f303efe57ac6493296802662daee

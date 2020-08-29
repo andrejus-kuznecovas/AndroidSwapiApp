@@ -25,7 +25,13 @@ private val retrofit = Retrofit.Builder()
 
 interface SwapiService {
     @GET("people")
-    fun getPeopleAsync(@Query("page") type: Int): Deferred<SwapiResult>
+    fun getPeopleAsync(@Query("page") page: Int): Deferred<SwapiResult>
+
+    @GET("people/")
+    fun getPeopleSearchAsync(
+        @Query("search") search: String?,
+        @Query("page") page: Int
+    ): Deferred<SwapiResult>
 }
 
 object Swapi {

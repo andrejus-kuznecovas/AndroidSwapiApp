@@ -16,8 +16,8 @@ class CharacterPagedListProvider(private val factory: DataSource.Factory<Int, Ch
         return LivePagedListBuilder(
             factory, PagedList.Config.Builder()
                 .setEnablePlaceholders(false)
-                .setPageSize(20)
-                .setInitialLoadSizeHint(20)
+                .setPageSize(10)
+                .setInitialLoadSizeHint(10)
                 .build()
         ).setFetchExecutor(createFetchExecutor())
             .build()
