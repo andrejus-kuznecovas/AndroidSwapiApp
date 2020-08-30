@@ -39,3 +39,13 @@ Eapp/src/main/java/com/example/swapi/datasource/CharacterDataSource.kt,9\6\96de
 Kapp/src/main/java/com/example/swapi/datasource/SearchCharacterDataSource.kt,d\6\d698a1b0fea2e20ead50d8bbe62c6003ace37dc9
 w
 Gapp/src/main/java/com/example/swapi/usecase/GetSearchedPeopleUseCase.kt,0\4\04eea8630026f303efe57ac6493296802662daee
+m
+=app/src/main/java/com/example/swapi/model/CharactersResult.kt,c\7\c79271ffd4c70831006bf56b525bacd1eb699fd8
+g
+7app/src/main/java/com/example/swapi/model/FilmResult.kt,e\f\efd5a6d3a43d4921d0060be905e695dc5ab09f7d
+f
+6app/src/main/java/com/example/swapi/model/Character.kt,4\d\4d11584a3c4335352cec0ff5ee8134c05284ad88
+a
+1app/src/main/java/com/example/swapi/model/Film.kt,4\9\49082f4744b7f1ce18eeb608c3c4e2841b1641ab
+m
+=app/src/main/java/com/example/swapi/util/FilmUrlToFilmUtil.kt,9\9\997421307f3fa256f90e09fc3581dd19c27cbdb8
