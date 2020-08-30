@@ -4,9 +4,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.paging.PagedList
+import com.example.swapi.datasource.SearchCharacterDataSource
 import com.example.swapi.network.Character
 
-class CharacterViewModel(pagedListProvider: PagedListProvider<Character?>) : ViewModel() {
+class CharacterViewModel : ViewModel() {
 
     private val _navigateToSelectedProperty = MutableLiveData<Character>()
 
@@ -18,10 +20,16 @@ class CharacterViewModel(pagedListProvider: PagedListProvider<Character?>) : Vie
     val searchCriteria: LiveData<String?>
         get() = _searchCriteria
 
+    private var pagedListProvider: PagedListProvider<Character?> = CharacterPagedListProvider(
+        factory = SearchCharacterDataSource.factory(searchCriteria.value)
+    )
+    private var pagedListData: LiveData<PagedList<Character?>> = pagedListProvider.provide()
 
-    private val pagedListData = pagedListProvider.provide()
+    init {
+        _searchCriteria.value = null
+    }
 
-    val adapter = CharacterAdapter(CharacterAdapter.OnClickListener {
+    var adapter = CharacterAdapter(CharacterAdapter.OnClickListener {
         this.displayPropertyDetails(it)
     })
 
@@ -39,6 +47,10 @@ class CharacterViewModel(pagedListProvider: PagedListProvider<Character?>) : Vie
     }
 
     fun changeSearchQuery(query: String?) {
+        pagedListProvider =
+            CharacterPagedListProvider(SearchCharacterDataSource.factory(query))
+        pagedListData = pagedListProvider.provide()
+        //adapter.notifyDataSetChanged()
         _searchCriteria.value = query
     }
 

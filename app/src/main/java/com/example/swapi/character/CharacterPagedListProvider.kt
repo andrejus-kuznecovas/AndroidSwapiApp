@@ -12,7 +12,6 @@ class CharacterPagedListProvider(private val factory: DataSource.Factory<Int, Ch
     PagedListProvider<Character?> {
 
     override fun provide(): LiveData<PagedList<Character?>> {
-
         return LivePagedListBuilder(
             factory, PagedList.Config.Builder()
                 .setEnablePlaceholders(false)

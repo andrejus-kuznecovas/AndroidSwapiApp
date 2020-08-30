@@ -3,7 +3,6 @@ package com.example.swapi.character
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.SearchView
 import android.widget.Toast
@@ -11,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.swapi.R
 import com.example.swapi.databinding.FragmentCharacterBinding
-import com.example.swapi.datasource.SearchCharacterDataSource
 
 class CharacterFragment : Fragment() {
 
@@ -23,17 +21,11 @@ class CharacterFragment : Fragment() {
     ): View? {
         val binding = FragmentCharacterBinding.inflate(inflater)
         binding.lifecycleOwner = this
-        viewModel = provideViewModel(null)
+        viewModel = provideViewModel()
         binding.viewModel = viewModel
         viewModel.observePagedList(this)
 
         viewModel.searchCriteria.observe(viewLifecycleOwner, {
-            Log.i(
-                "CharacterFragment.OnCr",
-                "viewModel.searchCriteria.observe string ${it}"
-            )
-            viewModel = provideViewModel(it)
-            binding.viewModel = viewModel
             viewModel.observePagedList(this)
         })
         viewModel.navigateToSelectedProperty.observe(viewLifecycleOwner, {
@@ -68,16 +60,9 @@ class CharacterFragment : Fragment() {
                 return false
             }
         })
-        //super.onCreateOptionsMenu(menu, inflater)
     }
 
-    private fun provideViewModel(searchCriteria: String?) = CharacterViewModelFactory(
-//        pagedListProvider = CharacterPagedListProvider(
-//            factory = CharacterDataSource.factory()
-//        )
-        pagedListProvider = CharacterPagedListProvider(
-            factory = SearchCharacterDataSource.factory(searchCriteria)
-        )
-    ).create(CharacterViewModel::class.java)
+    private fun provideViewModel() =
+        CharacterViewModelFactory().create(CharacterViewModel::class.java)
 }
 
