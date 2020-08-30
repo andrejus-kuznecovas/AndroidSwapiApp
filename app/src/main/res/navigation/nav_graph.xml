@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_char_detail">
         <argument
             android:name="selectedCharacter"
-            app:argType="com.example.swapi.network.Character"></argument>
+            app:argType="com.example.swapi.model.Character"></argument>
     </fragment>
 
 </navigation>

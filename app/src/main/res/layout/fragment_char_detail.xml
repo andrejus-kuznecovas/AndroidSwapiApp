@@ -61,5 +61,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gender_text"
             tools:text="Mass" />
+
+        <TextView
+            android:id="@+id/films_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@{detailViewModel.selectedCharacter.films.toString()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mass_text"
+            tools:text="Films" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

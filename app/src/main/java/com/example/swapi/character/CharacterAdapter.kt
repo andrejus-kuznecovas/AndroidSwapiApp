@@ -8,7 +8,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.swapi.databinding.GridViewItemBinding
-import com.example.swapi.network.Character
+import com.example.swapi.model.Character
 
 class CharacterAdapter(
     private val onClickListener: OnClickListener

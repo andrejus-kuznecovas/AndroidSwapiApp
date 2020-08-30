@@ -1,14 +1,14 @@
-package com.example.swapi.network
+package com.example.swapi.model
 
 import com.squareup.moshi.Json
 
-data class SwapiResult(
+data class FilmResult(
     @Json(name = "count")
-    val characterCount: Int,
+    val filmCount: Int,
     @Json(name = "next")
     val nextPageUri: String?,
     @Json(name = "previous")
     val previousPageUri: String?,
     @Json(name = "results")
-    val results: List<Character>
+    val results: List<Film>
 )

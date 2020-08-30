@@ -3,7 +3,7 @@ package com.example.swapi.detail
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.swapi.network.Character
+import com.example.swapi.model.Character
 
 class DetailViewModelFactory(
     private val character: Character,

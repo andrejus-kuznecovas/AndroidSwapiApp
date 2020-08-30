@@ -3,7 +3,7 @@ package com.example.swapi.datasource
 import android.util.Log
 import androidx.paging.DataSource
 import androidx.paging.PageKeyedDataSource
-import com.example.swapi.network.Character
+import com.example.swapi.model.Character
 import com.example.swapi.usecase.GetSearchedPeopleUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

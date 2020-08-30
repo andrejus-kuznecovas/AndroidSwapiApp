@@ -1,5 +1,7 @@
 package com.example.swapi.network
 
+import com.example.swapi.model.CharactersResult
+import com.example.swapi.model.FilmResult
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -25,13 +27,16 @@ private val retrofit = Retrofit.Builder()
 
 interface SwapiService {
     @GET("people")
-    fun getPeopleAsync(@Query("page") page: Int): Deferred<SwapiResult>
+    fun getPeopleAsync(@Query("page") page: Int): Deferred<CharactersResult>
 
     @GET("people/")
     fun getPeopleSearchAsync(
         @Query("search") search: String?,
         @Query("page") page: Int
-    ): Deferred<SwapiResult>
+    ): Deferred<CharactersResult>
+
+    @GET("films")
+    fun getFilmsAsync(): Deferred<FilmResult>
 }
 
 object Swapi {

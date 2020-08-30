@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import com.example.swapi.network.Character
+import com.example.swapi.model.Character
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 

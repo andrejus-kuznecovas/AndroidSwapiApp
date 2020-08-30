@@ -1,6 +1,6 @@
 package com.example.swapi.usecase
 
-import com.example.swapi.network.Character
+import com.example.swapi.model.Character
 import com.example.swapi.network.Swapi
 import com.example.swapi.network.SwapiService
 

@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.swapi.network.Character
+import com.example.swapi.model.Character
 
 class DetailViewModel(character: Character, app: Application) : AndroidViewModel(app) {
     private val _selectedCharacter = MutableLiveData<Character>()

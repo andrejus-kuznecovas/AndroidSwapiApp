@@ -1,4 +1,4 @@
-package com.example.swapi.network
+package com.example.swapi.model
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
@@ -11,5 +11,6 @@ data class Character(
     val mass: String,
     @Json(name = "birth_year")
     val birthYear: String,
-    val gender: String
+    val gender: String,
+    val films: List<String>
 ) : Parcelable {}

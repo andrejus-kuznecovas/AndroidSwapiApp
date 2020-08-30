@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import com.example.swapi.datasource.SearchCharacterDataSource
-import com.example.swapi.network.Character
+import com.example.swapi.model.Character
 
 class CharacterViewModel : ViewModel() {
 
